@@ -1,4 +1,5 @@
 #export PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/
+export PATH=~/bin:$PATH
 shopt -s histappend
 export HISTFILESIZE=100000
 export HISTSIZE=10000000

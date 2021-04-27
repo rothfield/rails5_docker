@@ -12,31 +12,26 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
-  rails5:
+  ###############
+  # production
+  #
+  # #############
+  rails5_prod:
     build:
       context: .
       dockerfile: Dockerfile
-      target: development
+      target: production 
     environment:
       RAILS_SERVE_STATIC_FILES: "true"
       RAILS_LOG_TO_STDOUT: "true"
-      RAILS_ENV: "development"
+      RAILS_ENV: production
     # Note that you have to bind to 0.0.0.0
     command: "bundle exec rails s  -b 0.0.0.0"
     ports:
       - "3000:3000"
-    # Access through browser at http://localhost:3000/
     depends_on:
       - db
-      # For development, mount rails app directory
-    volumes:
-      - /home/john/projects/rails5/app:/rails5/app  # bind mount
 
 volumes:
   postgres_data: {}
-
- 
-
-
-
  
